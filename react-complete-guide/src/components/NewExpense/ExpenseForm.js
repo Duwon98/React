@@ -5,12 +5,38 @@ const ExpenseForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
+  const [newExpenseButton, setNewExpenseButton] = useState(true);
 
   // const [userInput, setUserInput] = useState({
   //     enteredTitle: '',
   //     enteredAmount: '',
   //     enteredDate: ''
   // });
+
+  const NewExpenseHandler = (event) => {
+    setNewExpenseButton(false);
+    // console.log(event.target.value);
+  };
+
+  const NewExpenseCancleHandler = (event) => {
+    // event.preventDefault();
+    // console.log("Cancle button is working");
+    setNewExpenseButton(true);
+    // console.log(event.target.value);
+  };
+
+  // Logic for NewExpenseButton
+  if (newExpenseButton === true) {
+    return (
+      <div className="new-expense">
+        <form onSubmit={NewExpenseHandler}>
+          <div className="new-expense-button__actions ">
+            <button type="submit">Add New Expense</button>
+          </div>
+        </form>
+      </div>
+    );
+  }
 
   const titleChangeHandler = (event) => {
     setEnteredTitle(event.target.value);
@@ -40,6 +66,7 @@ const ExpenseForm = (props) => {
     setEnteredDate(event.target.value);
     // console.log(event.target.value);
   };
+
   const submitHandler = (event) => {
     event.preventDefault();
     const expenseData = {
@@ -86,6 +113,7 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button onClick={NewExpenseCancleHandler}>Cancel</button>
         <button type="submit">Add Expense</button>
       </div>
     </form>

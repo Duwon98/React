@@ -7,25 +7,25 @@ const INITIAL_EXPENSES = [
     id: "e1",
     title: "Toyota",
     price: 100,
-    date: new Date(2022, 19.04),
+    date: new Date(2022, 4, 10),
   },
   {
     id: "e2",
     title: "Honda",
     price: 123,
-    date: new Date(2020, 22.2),
+    date: new Date(2020, 0, 2),
   },
   {
     id: "e3",
     title: "KIA",
     price: 14,
-    date: new Date(2019, 3.4),
+    date: new Date(2019, 3, 4),
   },
   {
     id: "e4",
     title: "Porche",
     price: 1,
-    date: new Date(2022, 31.12),
+    date: new Date(2020, 1, 12),
   },
 ];
 
@@ -44,6 +44,7 @@ const App = () => {
 
   return (
     <div>
+      {/* <NewExpenseButton /> */}
       <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
     </div>
