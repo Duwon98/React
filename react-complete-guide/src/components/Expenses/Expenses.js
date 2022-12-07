@@ -3,6 +3,7 @@ import "./Expenses.css";
 import Card from "../UI/Card";
 import ExpensesFilter from "../Expenses/ExpensesFilter";
 import ExpensesList from "./ExpensesList";
+import ExpensesChart from "./ExpensesChart";
 
 // Stateful component
 function Expenses(props) {
@@ -24,6 +25,7 @@ function Expenses(props) {
     <div>
       <Card className="expenses">
         <ExpensesFilter selectedYear={filterYear} onChangeYear={SaveYearData} />
+        <ExpensesChart expenses={filteredExpense} />
         <ExpensesList items={filteredExpense} />
       </Card>
     </div>
